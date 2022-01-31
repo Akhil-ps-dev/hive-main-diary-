@@ -10,7 +10,7 @@ class TextFrave extends StatelessWidget
   final TextOverflow textOverflow;
   final int maxLine;
 
-  const TextFrave({
+   const TextFrave({
     required this.text, 
     this.fontSize = 18, 
     this.color = Colors.black, 

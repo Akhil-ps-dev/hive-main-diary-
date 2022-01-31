@@ -7,31 +7,27 @@ import 'package:main_note_hive/Models/NoteModels.dart';
 import 'package:main_note_hive/Screens/HomePage.dart';
 
 void main() async {
-
-
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
 
-  Hive.registerAdapter(NoteModelsAdapter()); 
+  Hive.registerAdapter(NoteModelsAdapter());
 
-  await Hive.openBox<NoteModels>('keepNote');  
-  
+  await Hive.openBox<NoteModels>('keepNote');
+
   runApp(MyApp());
 }
- 
+
 class MyApp extends StatelessWidget {
-  
   @override
-  Widget build(BuildContext context) 
-  {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent, statusBarIconBrightness: Brightness.dark ));
+  Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark));
 
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => NotesBloc())
-      ],
+      providers: [BlocProvider(create: (context) => NotesBloc())],
       child: MaterialApp(
-        title: 'Keep Note - Frave Developer',
+        title: 'Keep Note',
         debugShowCheckedModeBanner: false,
         home: HomePage(),
       ),
