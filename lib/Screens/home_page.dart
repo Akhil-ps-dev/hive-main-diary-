@@ -4,12 +4,14 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:main_note_hive/Bloc/Notes/notes_bloc.dart';
 import 'package:main_note_hive/Models/NoteModels.dart';
-import 'package:main_note_hive/Screens/AddNotePage.dart';
+import 'package:main_note_hive/Screens/add_note_page.dart';
 import 'package:main_note_hive/Widgets/TextFrave.dart';
 
-import 'ShowNotePage.dart';
+import 'show_note_page.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -35,7 +37,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color(0xffF2F3F7),
         elevation: 0,
         title: const TextFrave(
-            text: 'Keep Note', fontWeight: FontWeight.w500, fontSize: 21),
+            text: 'Personal Diary ', fontWeight: FontWeight.w500, fontSize: 21),
         centerTitle: true,
         actions: [
           IconButton(
@@ -57,7 +59,7 @@ class _HomePageState extends State<HomePage> {
           builder: (_, Box box, __) {
             if (box.values.isEmpty) {
               return const Center(
-                child: TextFrave(text: 'Without Notes', color: Colors.blue),
+                child: TextFrave(text: 'Box is empty..', color: Colors.blue),
               );
             }
 
@@ -99,7 +101,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: InkWell(
         borderRadius: BorderRadius.circular(50.0),
         onTap: () => Navigator.push(
-            context, MaterialPageRoute(builder: (_) => AddNotePage())),
+            context, MaterialPageRoute(builder: (_) => const AddNotePage())),
         child: Container(
           height: 50,
           width: 50,
@@ -110,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                 BoxShadow(
                     color: Colors.blue, blurRadius: 10, spreadRadius: -5.0)
               ]),
-          child: const Icon(Icons.add, color: Colors.white),
+          child: const Icon(Icons.mode_edit_outlined, color: Colors.white),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -155,8 +157,7 @@ class _ListNotes extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(20.0),
                   bottomRight: Radius.circular(20.0))),
-          child: const Icon(Icons.delete_sweep_rounded,
-              color: Colors.white, size: 40),
+          child: const Icon(Icons.delete, color: Colors.white, size: 40),
         ),
         onDismissed: (direction) => noteBloc.add(DeleteNoteEvent(index)),
         child: Container(
@@ -240,20 +241,20 @@ class _GridViewNote extends StatelessWidget {
         direction: DismissDirection.up,
         background: Container(),
         secondaryBackground: Container(
-          padding: EdgeInsets.only(bottom: 35.0),
-          margin: EdgeInsets.only(bottom: 15.0),
+          padding: const EdgeInsets.only(bottom: 35.0),
+          margin: const EdgeInsets.only(bottom: 15.0),
           alignment: Alignment.bottomCenter,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               color: Colors.red,
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20.0),
                   bottomRight: Radius.circular(20.0))),
-          child: Icon(Icons.delete, color: Colors.white, size: 40),
+          child: const Icon(Icons.delete, color: Colors.white, size: 40),
         ),
         onDismissed: (direction) => noteBloc.add(DeleteNoteEvent(index)),
         child: Container(
-          padding: EdgeInsets.all(10.0),
-          margin: EdgeInsets.only(bottom: 15.0),
+          padding: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.only(bottom: 15.0),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0), color: Colors.white),
           child: Column(

@@ -3,11 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:main_note_hive/Bloc/Notes/notes_bloc.dart';
 
 class Circle extends StatelessWidget {
-  
   final int color;
   final VoidCallback onPressed;
 
-  const Circle({required this.color, required this.onPressed });
+  const Circle({required this.color, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +14,14 @@ class Circle extends StatelessWidget {
       borderRadius: BorderRadius.circular(50.0),
       onTap: onPressed,
       child: Container(
-        height: 35,
-        width: 35,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Color(color)
-        ),
-        child: BlocBuilder<NotesBloc, NotesState>(
-          builder: (_, state) => state.color == color ? Icon(Icons.check, color: Colors.white) : Container() 
-        ) 
-      ),
+          height: 35,
+          width: 35,
+          decoration:
+              BoxDecoration(shape: BoxShape.circle, color: Color(color)),
+          child: BlocBuilder<NotesBloc, NotesState>(
+              builder: (_, state) => state.color == color
+                  ? Icon(Icons.check, color: Colors.white)
+                  : Container())),
     );
   }
 }

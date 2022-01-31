@@ -15,7 +15,7 @@ void showModalGridView( BuildContext ctx ){
         content: Container(
           height: 200,
           child: Column(
-            children: [
+            children:const [
               TextFrave(text: 'Options')
             ],
           ),

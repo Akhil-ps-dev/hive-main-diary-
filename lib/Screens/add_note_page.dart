@@ -8,13 +8,15 @@ import 'package:main_note_hive/Widgets/TextFieldTitle.dart';
 import 'package:main_note_hive/Widgets/TextFrave.dart';
 
 class AddNotePage extends StatefulWidget {
+  const AddNotePage({Key? key}) : super(key: key);
+
   @override
   _AddNotePageState createState() => _AddNotePageState();
 }
 
 class _AddNotePageState extends State<AddNotePage> {
-  TextEditingController _titleController = TextEditingController();
-  TextEditingController _noteController = TextEditingController();
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _noteController = TextEditingController();
 
   @override
   void initState() {
@@ -39,16 +41,16 @@ class _AddNotePageState extends State<AddNotePage> {
     final noteBloc = BlocProvider.of<NotesBloc>(context);
 
     return Scaffold(
-      backgroundColor: Color(0xffF2F3F7),
+      backgroundColor: const Color(0xffF2F3F7),
       appBar: AppBar(
-        backgroundColor: Color(0xffF2F3F7),
+        backgroundColor: const Color(0xffF2F3F7),
         elevation: 0,
-        title: TextFrave(
-            text: 'Add Note', fontWeight: FontWeight.w500, fontSize: 21),
+        title: const TextFrave(
+            text: 'Add Diary', fontWeight: FontWeight.w500, fontSize: 21),
         centerTitle: true,
         leading: InkWell(
             onTap: () => Navigator.pop(context),
-            child: Center(
+            child: const Center(
                 child: TextFrave(
               text: 'Cancel',
               fontSize: 15,
@@ -70,7 +72,7 @@ class _AddNotePageState extends State<AddNotePage> {
             child: Container(
                 alignment: Alignment.center,
                 width: 60,
-                child: TextFrave(
+                child: const TextFrave(
                   text: 'Save',
                   fontSize: 15,
                   color: Color(0xff0C6CF2),
@@ -81,17 +83,17 @@ class _AddNotePageState extends State<AddNotePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
                 TextTitle(
                   controller: _titleController,
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 TextWriteNote(controller: _noteController),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 _Category(),
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
                 SelectedColors(),
               ],
             ),

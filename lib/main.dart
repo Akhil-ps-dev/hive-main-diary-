@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:main_note_hive/Bloc/Notes/notes_bloc.dart';
 import 'package:main_note_hive/Models/NoteModels.dart';
-import 'package:main_note_hive/Screens/HomePage.dart';
+import 'package:main_note_hive/Screens/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [BlocProvider(create: (context) => NotesBloc())],
-      child: MaterialApp(
-        title: 'Keep Note',
+      child: const MaterialApp(
+        title: 'Personal Diary',
         debugShowCheckedModeBanner: false,
         home: HomePage(),
       ),

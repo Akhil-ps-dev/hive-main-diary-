@@ -5,13 +5,12 @@ import 'package:main_note_hive/Bloc/Notes/notes_bloc.dart';
 import 'TextFrave.dart';
 
 class ItemCategory extends StatelessWidget {
-  
   final Color color;
   final String text;
   final VoidCallback onPressed;
 
-  const ItemCategory({ required this.color, required this.text, required this.onPressed });
-  
+  const ItemCategory(
+      {required this.color, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -29,21 +28,19 @@ class ItemCategory extends StatelessWidget {
                   height: 18,
                   width: 18,
                   decoration: BoxDecoration(
-                    border: Border.all(color: color, width: 4.0),
-                    borderRadius: BorderRadius.circular(7.0)
-                  ),
+                      border: Border.all(color: color, width: 4.0),
+                      borderRadius: BorderRadius.circular(7.0)),
                 ),
-                SizedBox(width: 10.0),
-                TextFrave(text: text, fontSize: 19 ),
+                const SizedBox(width: 10.0),
+                TextFrave(text: text, fontSize: 19),
               ],
             ),
             Row(
               children: [
-                Container(
-                  child: BlocBuilder<NotesBloc, NotesState>(
-                    builder: (_, state) 
-                      => state.category == text ? Icon(Icons.check) : Container(),
-                  ),
+                BlocBuilder<NotesBloc, NotesState>(
+                  builder: (_, state) => state.category == text
+                      ? const Icon(Icons.check)
+                      : Container(),
                 )
               ],
             )

@@ -12,7 +12,7 @@ class ShowNotePage extends StatefulWidget {
   final NoteModels note;
   final int index;
 
-   ShowNotePage({required this.note, required this.index});
+  ShowNotePage({required this.note, required this.index});
 
   @override
   _ShowNotePageState createState() => _ShowNotePageState();
@@ -54,9 +54,9 @@ class _ShowNotePageState extends State<ShowNotePage> {
     final noteBloc = BlocProvider.of<NotesBloc>(context);
 
     return Scaffold(
-      backgroundColor:const Color(0xffF2F3F7),
+      backgroundColor: const Color(0xffF2F3F7),
       appBar: AppBar(
-        backgroundColor:const Color(0xffF2F3F7),
+        backgroundColor: const Color(0xffF2F3F7),
         elevation: 0,
         title: TextFrave(
             text: widget.note.title!,
@@ -65,7 +65,7 @@ class _ShowNotePageState extends State<ShowNotePage> {
         centerTitle: true,
         leading: InkWell(
             onTap: () => Navigator.pop(context),
-            child:const Center(
+            child: const Center(
                 child: TextFrave(
               text: 'Cancel',
               fontSize: 15,
@@ -90,7 +90,7 @@ class _ShowNotePageState extends State<ShowNotePage> {
             child: Container(
                 alignment: Alignment.center,
                 width: 60,
-                child:const TextFrave(
+                child: const TextFrave(
                   text: 'Save',
                   fontSize: 15,
                   color: Color(0xff0C6CF2),
@@ -101,17 +101,17 @@ class _ShowNotePageState extends State<ShowNotePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding:const EdgeInsets.symmetric(horizontal: 10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
                 TextTitle(
                   controller: _titleController,
                 ),
-           const     SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 TextWriteNote(controller: _noteController),
-           const     SizedBox(height: 20.0),
-           _Category(),
-           const     SizedBox(height: 30.0),
+                const SizedBox(height: 20.0),
+                _Category(),
+                const SizedBox(height: 30.0),
                 SelectedColors(),
               ],
             ),
@@ -131,16 +131,17 @@ class _Category extends StatelessWidget {
       height: 60,
       width: size.width,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0), color: Color(0xffF6F8F9)),
+          borderRadius: BorderRadius.circular(10.0),
+          color: const Color(0xffF6F8F9)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 10.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 10.0),
             child: TextFrave(text: 'Category'),
           ),
           Container(
-            margin: EdgeInsets.only(right: 10.0),
+            margin: const EdgeInsets.only(right: 10.0),
             alignment: Alignment.center,
             height: 40,
             width: 170,
@@ -172,7 +173,7 @@ class _Category extends StatelessWidget {
                     BlocBuilder<NotesBloc, NotesState>(
                         builder: (_, state) => TextFrave(
                             text: state.category, fontWeight: FontWeight.w600)),
-                const    Icon(Icons.expand_more)
+                    const Icon(Icons.expand_more)
                   ],
                 ),
               ),
